@@ -5,6 +5,6 @@ import numpy.linalg as npl
 def IsComplanar(*vectors):  
   #return npl.matrix_rank(vectors) <= 2 #this will work until float operation precision will screw you up
   u, s, vh = npl.svd(vectors)   
-  s = [round(val, 12) for val in s]
+  s = [round(val, 12) for val in s]  #{only) 12 significant digits are accounted for
   count = sum(map(lambda x : x > 0, s))
   return count <= 2
